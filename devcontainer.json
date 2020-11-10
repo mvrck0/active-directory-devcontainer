@@ -1,0 +1,18 @@
+{
+    "build": {
+        "dockerfile": "./Dockerfile",
+        "target": "development"
+    },
+    "workspaceFolder": "/",
+    "extensions": [],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "forwardPorts": [
+        389
+    ],
+    "remoteUser": "vscode",
+    "remoteEnv": {
+        "MY_VARIABLE": "some-value"
+    }
+}
