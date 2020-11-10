@@ -17,8 +17,13 @@ RUN yum -y install epel-release
 # Install Openldap Server and Clients package
 RUN yum install -y openldap-servers openldap-servers-sql openldap-clients openldap-devel gcc python-devel
 
+COPY ./data/scripts /scripts
+RUN /scripts/get-pip.py
+
+RUN python -m pip install python-ldap==2.5.2
+
 # Set Enviroment
-env SLAPD_URL ldapi:/// ldap:///
+ENV SLAPD_URL ldapi:/// ldap:///
 
 # Adding the run file
 ADD run.sh /usr/bin/run.sh
